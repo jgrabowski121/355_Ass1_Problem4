@@ -29,7 +29,7 @@ void function1(unsigned numReferences, int* array[]);
  * @param numReferences: the number of references made
  * @param int* array[] the array to test on
  */
-void function2(unsigned numReferences, int* array[]);
+void function2(unsigned numReferences, int* array[], unsigned rowSize);
 
 
 int main(int argc, const char * argv[]) {
@@ -57,11 +57,11 @@ int main(int argc, const char * argv[]) {
     timeTest.setStartClock();
     for(size_t i = 0; i <= ITERATION; i++)
     {
-        function1(1000, arrayOne);
+        function1(ARRAY_SIZE, arrayOne);
     }
     timeTest.setEndClock();
     
-    std::cout << "Time to execute function2 "
+    std::cout << "Time to execute function1 "
     <<  ITERATION
     << " iterations: "
     << std::fixed
@@ -78,11 +78,11 @@ int main(int argc, const char * argv[]) {
     timeTest.setStartClock();
     for(size_t i = 0; i <= ITERATION; i++)
     {
-        function2(1000, arrayOne);
+        function2(ARRAY_SIZE, arrayOne, ARRAY_SIZE);
     }
     timeTest.setEndClock();
     
-    std::cout << "Time to execute function3 "
+    std::cout << "Time to execute function2 "
     <<  ITERATION
     << " iterations: "
     << std::fixed
@@ -101,19 +101,27 @@ int main(int argc, const char * argv[]) {
 
 void function1(unsigned numReferences, int* array[])
 {
-    int arrayOne[100][100];
-    int arrayTwo[100][100];
+    //int to store the recieved data for testing
+    int temp;
     
-    for (size_t i = 0; i < 100; ++i)
-        for(size_t j = 0; j < 100; ++j)
+    for (size_t i = 0; i < numReferences; ++i)
+        for(size_t j = 0; j < numReferences; ++j)
         {
-            arrayOne[i][j] = rand() % INT_MAX;
+            temp = array[i][j];
         }
     
     
 }
 
-void function2(unsigned numReferences, int* array[])
+void function2(unsigned numReferences, int* array[], unsigned rowSize)
 {
-    
+    unsigned long temp;
+    int row_lb = 0;
+    int col_lb = 0;
+    for (size_t i = 0; i < numReferences; ++i)
+        for(size_t j = 0; j < numReferences; ++j)
+        {
+            temp = *array[row_lb, col_lb] - (((row_lb * rowSize) + col_lb) * sizeof(int))
+            + (((i * rowSize) + j) * sizeof(int));
+        }
 }
