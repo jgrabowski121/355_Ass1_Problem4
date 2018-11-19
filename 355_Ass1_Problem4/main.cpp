@@ -124,6 +124,7 @@ void function2(unsigned numReferences, int* array[], unsigned rowSize)
     for (size_t i = 0; i < numReferences; ++i)
         for(size_t j = 0; j < numReferences; ++j)
         {
+            // This is the storage mapping function
             temp = (array[row_lb][col_lb] - (((row_lb * rowSize) + col_lb) * sizeof(int))
             + (((i * rowSize) + j) * sizeof(int)));
         }
