@@ -94,7 +94,7 @@ int main(int argc, const char * argv[]) {
     << " ms\n\n";
     
     //----------------
-    
+    delete [] arrayOne;
     return 0;
 }
 
