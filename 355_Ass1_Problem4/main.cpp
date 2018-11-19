@@ -15,8 +15,6 @@
 #include "timeTest.h"
 #include <exception>
 
-#include <chrono>
-
 //Function declarations
 
 /*
