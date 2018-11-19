@@ -20,7 +20,7 @@
  * @param numReferences: the number of references made
  * @param int* array[] the array to test on
  */
-void function1(unsigned numReferences, int* array[]);
+void function1(unsigned arraySize, int* array[]);
 
 /*
  * Performs references to elements
@@ -29,7 +29,7 @@ void function1(unsigned numReferences, int* array[]);
  * @param numReferences: the number of references made
  * @param int* array[] the array to test on
  */
-void function2(unsigned numReferences, int* array[], unsigned rowSize);
+void function2(unsigned arraySize, int* array[], unsigned rowSize);
 
 
 int main(int argc, const char * argv[]) {
