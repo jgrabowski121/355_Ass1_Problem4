@@ -1,10 +1,15 @@
 //
-//  main.cpp
-//  355_Ass1_Problem4
+// Justin Grabowski
+// CS355
+// Fall 2018
+// November 10th 2018
+// Instructor Ganchev G.
+// main.cpp
+// CS355Ass1_Problem4
+// Language C++
 //
-//  Created by Justin Grabowski on 11/17/18.
-//  Copyright © 2018 Justin Grabowski. All rights reserved.
-//
+// Purpose: This file tests the time taken for
+// two-dimentional array element access
 
 #include <iostream>
 #include "timeTest.h"
@@ -94,7 +99,7 @@ int main(int argc, const char * argv[]) {
     << " ms\n\n";
     
     //----------------
-    delete [] arrayOne;
+    delete [] arrayOne; // delete the dynamic array
     return 0;
 }
 
